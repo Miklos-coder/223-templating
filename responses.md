@@ -1,16 +1,11 @@
-# EJS-Grundlagen
-
-Quellen:
-
-- GeeksforGeeks: https://www.geeksforgeeks.org/node-js/how-to-use-template-engines-in-express-js/
-- EJS-Dokumentation: https://ejs.co/
+# EJS-Grundlagenno
 
 ## Daten an ein Template übergeben
 
-In Express werden Daten beim Rendern als Objekt an `res.render()` übergeben.
+In Express werden Daten beim Rendern als Objekt an res.render() übergeben.
 Die Properties dieses Objekts können im EJS-Template direkt verwendet werden.
 
-```js
+js
 app.get('/', (req, res) => {
     res.render('index', {
         title: 'Startseite',
@@ -21,23 +16,23 @@ app.get('/', (req, res) => {
         names: ['Fred', 'Bob', 'Peter']
     });
 });
-```
+
 
 Im Template können einfache Werte und komplexe Datenstrukturen ausgegeben werden.
 Mit `<%= ... %>` wird der Wert HTML-escaped ausgegeben.
 
-```ejs
+ejs
 <h1><%= title %></h1>
 <p>Name: <%= user.name %></p>
 <p>Alter: <%= user.age %></p>
-```
+
 
 ## Kontrollstrukturen
 
 EJS verwendet normales JavaScript in den Tags `<% ... %>`.
 Damit kann man zum Beispiel `if`-Abfragen und Schleifen schreiben.
 
-```ejs
+ejs
 <% if (names.length > 0) { %>
     <ul>
         <% names.forEach((name) => { %>
@@ -47,7 +42,7 @@ Damit kann man zum Beispiel `if`-Abfragen und Schleifen schreiben.
 <% } else { %>
     <p>Keine Namen verfügbar.</p>
 <% } %>
-```
+
 
 `<% ... %>` führt JavaScript aus, gibt aber selbst nichts aus.
 `<%= ... %>` gibt einen Wert escaped aus.
@@ -58,7 +53,7 @@ Damit kann man zum Beispiel `if`-Abfragen und Schleifen schreiben.
 Partials sind wiederverwendbare EJS-Dateien, zum Beispiel für Header, Navigation oder Footer.
 Sie können mit `include()` eingebunden werden.
 
-```ejs
+ejs
 <%- include('partials/header', { title: 'Startseite' }) %>
 
 <main>
@@ -66,11 +61,11 @@ Sie können mit `include()` eingebunden werden.
 </main>
 
 <%- include('partials/footer') %>
-```
+
 
 Beispiel für `views/partials/header.ejs`:
 
-```ejs
+ejs
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -78,14 +73,14 @@ Beispiel für `views/partials/header.ejs`:
     <title><%= title %></title>
 </head>
 <body>
-```
+
 
 Beispiel für `views/partials/footer.ejs`:
 
-```ejs
+ejs
 </body>
 </html>
-```
+
 
 ## Überlegung
 
