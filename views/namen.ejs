@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Namen</title>
+  </head>
+  <body>
+    <h1>Namen</h1>
+    <% if (namen.length > 0) { %>
+      <ul>
+        <% namen.forEach((name) => { %>
+          <li><%= name %></li>
+        <% }); %>
+      </ul>
+    <% } else { %>
+      <p>Keine Namen verfügbar.</p>
+    <% } %>
+    <p>Zurück zur <a href="/">Hauptseite</a></p>
+  </body>
+</html>

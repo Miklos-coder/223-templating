@@ -5,10 +5,10 @@ Quellen:
 - GeeksforGeeks: https://www.geeksforgeeks.org/node-js/how-to-use-template-engines-in-express-js/
 - EJS-Dokumentation: https://ejs.co/
 
-## Daten an ein Template uebergeben
+## Daten an ein Template übergeben
 
-In Express werden Daten beim Rendern als Objekt an `res.render()` uebergeben.
-Die Properties dieses Objekts koennen im EJS-Template direkt verwendet werden.
+In Express werden Daten beim Rendern als Objekt an `res.render()` übergeben.
+Die Properties dieses Objekts können im EJS-Template direkt verwendet werden.
 
 ```js
 app.get('/', (req, res) => {
@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
 });
 ```
 
-Im Template koennen einfache Werte und komplexe Datenstrukturen ausgegeben werden.
+Im Template können einfache Werte und komplexe Datenstrukturen ausgegeben werden.
 Mit `<%= ... %>` wird der Wert HTML-escaped ausgegeben.
 
 ```ejs
@@ -45,18 +45,18 @@ Damit kann man zum Beispiel `if`-Abfragen und Schleifen schreiben.
         <% }); %>
     </ul>
 <% } else { %>
-    <p>Keine Namen verfuegbar.</p>
+    <p>Keine Namen verfügbar.</p>
 <% } %>
 ```
 
-`<% ... %>` fuehrt JavaScript aus, gibt aber selbst nichts aus.
+`<% ... %>` führt JavaScript aus, gibt aber selbst nichts aus.
 `<%= ... %>` gibt einen Wert escaped aus.
-`<%- ... %>` gibt unescaped HTML aus und wird deshalb typischerweise fuer Partials verwendet.
+`<%- ... %>` gibt unescaped HTML aus und wird deshalb typischerweise für Partials verwendet.
 
 ## Partials einbinden
 
-Partials sind wiederverwendbare EJS-Dateien, zum Beispiel fuer Header, Navigation oder Footer.
-Sie koennen mit `include()` eingebunden werden.
+Partials sind wiederverwendbare EJS-Dateien, zum Beispiel für Header, Navigation oder Footer.
+Sie können mit `include()` eingebunden werden.
 
 ```ejs
 <%- include('partials/header', { title: 'Startseite' }) %>
@@ -68,7 +68,7 @@ Sie koennen mit `include()` eingebunden werden.
 <%- include('partials/footer') %>
 ```
 
-Beispiel fuer `views/partials/header.ejs`:
+Beispiel für `views/partials/header.ejs`:
 
 ```ejs
 <!DOCTYPE html>
@@ -80,16 +80,16 @@ Beispiel fuer `views/partials/header.ejs`:
 <body>
 ```
 
-Beispiel fuer `views/partials/footer.ejs`:
+Beispiel für `views/partials/footer.ejs`:
 
 ```ejs
 </body>
 </html>
 ```
 
-## Ueberlegung
+## Überlegung
 
-EJS ist fuer einfache Express-Anwendungen gut geeignet, weil Templates nah an HTML bleiben
-und JavaScript direkt fuer Bedingungen und Schleifen genutzt werden kann. Wichtig ist,
+EJS ist für einfache Express-Anwendungen gut geeignet, weil Templates nah an HTML bleiben
+und JavaScript direkt für Bedingungen und Schleifen genutzt werden kann. Wichtig ist,
 Benutzerdaten normalerweise mit `<%= ... %>` auszugeben, damit HTML escaped wird.
-`<%- ... %>` sollte nur verwendet werden, wenn wirklich bewusst HTML eingefuegt werden soll.
+`<%- ... %>` sollte nur verwendet werden, wenn wirklich bewusst HTML eingefügt werden soll.
